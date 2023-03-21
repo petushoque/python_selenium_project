@@ -45,6 +45,9 @@ class Login_page(Base):
             try:
                 self.driver.get(self.url)
                 self.driver.maximize_window()
+
+                self.get_current_url()
+
                 self.input_username(u)
                 self.input_password(password)
                 self.click_on_login_button()
