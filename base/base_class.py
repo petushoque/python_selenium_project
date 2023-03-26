@@ -14,7 +14,12 @@ class Base():
     def assert_word(self, elem, word):
         elem_value = elem.text
         assert elem_value == word
-        print('Successful assertion')
+        print('Successful word assertion')
+
+    def assert_url(self, exp):
+        get_url = self.driver.current_url
+        assert get_url == exp
+        print('Successful url assertion')
 
     def make_screenshot(self):
         now_date = datetime.datetime.utcnow().strftime('%Y.%m.%d.%H.%M.%S')

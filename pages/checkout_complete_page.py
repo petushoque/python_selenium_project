@@ -13,4 +13,5 @@ class Checkout_complete_page(Base):
     #Methods
     def is_final_screen_displayed(self):
         self.get_current_url()
+        self.assert_url('https://www.saucedemo.com/checkout-complete.html')
         self.make_screenshot()
