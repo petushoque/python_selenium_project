@@ -44,7 +44,7 @@ class Login_page(Base):
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()
-        self.input_username(u)
+        self.input_username(user)
         self.input_password(password)
         self.click_on_login_button()
         self.assert_word(WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span'))), 'Products')
