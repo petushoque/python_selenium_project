@@ -1,3 +1,6 @@
+import datetime
+
+
 class Base():
 
     def __init__(self, driver):
@@ -12,3 +15,8 @@ class Base():
         elem_value = elem.text
         assert elem_value == word
         print('Successful assertion')
+
+    def make_screenshot(self):
+        now_date = datetime.datetime.utcnow().strftime('%Y.%m.%d.%H.%M.%S')
+        screenshot_name = 'screenshot' + now_date + '.png'
+        self.driver.save_screenshot('../screen/' + screenshot_name)
