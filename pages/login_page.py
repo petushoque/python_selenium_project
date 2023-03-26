@@ -52,9 +52,11 @@ class Login_page(Base):
                 self.input_password(password)
                 self.click_on_login_button()
 
-                inventory_page_title = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span')))
-                assert inventory_page_title.text == 'Products'
-                print('User: ' + u + ' successfully logged in!')
+                self.assert_word(WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span'))), 'Products')
+
+                #inventory_page_title = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span')))
+                #assert inventory_page_title.text == 'Products'
+                #print('User: ' + u + ' successfully logged in!')
                 menu_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, 'react-burger-menu-btn')))
                 menu_button.click()
                 logout_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, 'logout_sidebar_link')))
