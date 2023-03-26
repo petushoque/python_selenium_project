@@ -40,27 +40,11 @@ class Login_page(Base):
         self.get_login_button().click()
         print('Click on Login button')
 
-    def authorization(self, users, password):
-        for u in users:
-            try:
-                self.driver.get(self.url)
-                self.driver.maximize_window()
-
-                self.get_current_url()
-
-                self.input_username(u)
-                self.input_password(password)
-                self.click_on_login_button()
-
-                self.assert_word(WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span'))), 'Products')
-
-                #inventory_page_title = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span')))
-                #assert inventory_page_title.text == 'Products'
-                #print('User: ' + u + ' successfully logged in!')
-                menu_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, 'react-burger-menu-btn')))
-                menu_button.click()
-                logout_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, 'logout_sidebar_link')))
-                logout_button.click()
-            except selenium.common.exceptions.TimeoutException:
-                print('User: ' + u + ' authorization failed')
-                self.driver.refresh()
+    def authorization(self, user, password):
+        self.driver.get(self.url)
+        self.driver.maximize_window()
+        self.get_current_url()
+        self.input_username(u)
+        self.input_password(password)
+        self.click_on_login_button()
+        self.assert_word(WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="header_container"]/div[2]/span'))), 'Products')
