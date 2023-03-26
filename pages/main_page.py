@@ -21,7 +21,7 @@ class Main_page(Base):
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.loc_sauce_labs_backpack_add_button)))
 
     def get_shopping_cart_button(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.loc_shopping_cart_button)))
+        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, self.loc_shopping_cart_button)))
     # Actions
     def add_sauce_labs_backpack_to_cart(self):
         self.get_sauce_labs_backpack_add_button().click()
