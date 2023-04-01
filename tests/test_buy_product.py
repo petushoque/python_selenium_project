@@ -14,7 +14,7 @@ from pages.user_information_page import User_information_page
 users = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']
 password = 'secret_sauce'
 
-def test_auth_test():
+def test_buy_product():
     s = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=s)
     login_page = Login_page(driver)
