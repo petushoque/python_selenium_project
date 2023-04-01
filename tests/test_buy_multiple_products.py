@@ -17,7 +17,7 @@ users = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch
 password = 'secret_sauce'
 
 @pytest.mark.run(order=3)
-def test_buy_product_1():
+def test_buy_product_1(set_up):
     s = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=s)
 
