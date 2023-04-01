@@ -1,5 +1,7 @@
 import time
-#import pages
+
+import pytest
+# import pages
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -14,6 +16,7 @@ from pages.user_information_page import User_information_page
 users = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user']
 password = 'secret_sauce'
 
+@pytest.mark.run(order=3)
 def test_buy_product_1():
     s = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=s)
@@ -29,6 +32,7 @@ def test_buy_product_1():
     time.sleep(5)
     driver.quit()
 
+@pytest.mark.run(order=1)
 def test_buy_product_2():
     s = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=s)
@@ -44,6 +48,7 @@ def test_buy_product_2():
     time.sleep(5)
     driver.quit()
 
+@pytest.mark.run(order=2)
 def test_buy_product_3():
     s = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=s)
